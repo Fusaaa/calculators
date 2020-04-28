@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="艦隊これくしょん－艦これ－ 大発の増収効果と、それによる収入がわかります。">
+	<meta name="viewpoint" content="width=1050">
+	<meta name="keywords" content="遠征,艦これ 遠征,大発,艦これ 大発">
+
+	<script src="http://kc2ndexpcalc.web.fc2.com/ensei.js" charset="utf-8"></script>
+	<script><!--
+    function sublist( target ) {
+      var TargetList = target.parentNode.getElementsByTagName('ul');
+    if ( TargetList[0].style.display == 'none' ) {
+      TargetList[0].style.display = 'block';
+    } else {
+      TargetList[0].style.display = 'none';
+    }
+  }
+  // --></script>
+	<script type="text/javascript"><!--
+    function allshowhide( showhide ) {
+      var TargetLabels = document.getElementsByClassName('menu');
+    for (var i=0; i<TargetLabels.length; i++) {
+      var TargetLists = TargetLabels[i].parentNode.getElementsByTagName('ul');
+      TargetLists[0].style.display = showhide;
+    }
+  }
+  // --></script>
+
+	<link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/ensei.css">
+  <link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/for-flexbox.css">
+	<title> 艦これ > 大発遠征計算機 </title>
+</head>
+
+<body>
+	<h1>大発遠征計算機</h1>
+	<div class="fusaaa_">
+	<div class="main">
+	<form name="ensei_choose">
+		<h3>・1.基本量入力 <span style="font-size:10px;">※大発の増収効果のみ知りたい場合は入力スキップできます</span></h3>
+		<span style="color:red;">新機能！</span>主要な遠征は選択→送信でかんたん入力できます<br>
+		<select name="choose" id="choose" class="csize">
+			  <option value="0">選択 or 手動入力</option>
+			<optgroup label="鎮守府海域">
+				<option value="2">ID2.長距離練習航海</option>
+				<option value="3">ID3.警備任務</option>
+				<option value="5">ID5.海上護衛任務</option>
+				<option value="6">ID6.防空射撃演習</option>
+			</optgroup>
+			<optgroup label="南西諸島海域">
+				<option value="9">ID9.タンカー護衛任務</option>
+				<option value="11">ID11.ボーキサイト輸送任務</option>
+				<option value="15">ID15.囮機動部隊支援作戦</option>
+				<option value="16">ID16.艦隊決戦援護作戦</option>
+			</optgroup>
+			<optgroup label="北方海域">
+				<option value="21">ID21.北方鼠輸送作戦</option>
+				<option value="24">ID24.北方航路海上護衛</option>
+			</optgroup>
+			<optgroup label="南西海域">
+				<option value="42">ID42.ミ船団護衛(1号船団)</option>
+				<option value="43">ID43.ミ船団護衛(2号船団)</option>
+				<option value="44">ID44.航空装備輸送任務</option>
+			</optgroup>
+			<optgroup label="西方海域">
+				<option disabled>(なし)</option>
+			</optgroup>
+			<optgroup label="南方海域">
+				<option value="35">ID35.MO作戦</option>
+				<option value="36">ID36.水上機基地建設</option>
+				<option value="37">ID37.東京急行</option>
+				<option value="38">ID38.東京急行(弐)</option>
+			</optgroup>
+		</select>
+		<input onclick="E_func()" type="button" value="送信">
+	</form>
+	<form name="calculator">
+		<table>
+			<tr align="center">
+				<td>
+					<big>燃料 <input type="number" id="shunyu1" value="200" min="0" max="2000" step="1" class="ssize"></big>
+				</td>
+				<td>
+					<big>鋼材 <input type="number" id="shunyu3" value="150" min="0" max="2000" step="1" class="ssize"></big>
+				</td>
+			</tr>
+			<tr align="center">
+				<td>
+					<big>弾薬 <input type="number" id="shunyu2" value="100" min="0" max="2000" step="1" class="ssize"></big>
+				</td>
+				<td>
+					<big>ボーキ <input type="number" id="shunyu4" value="50" min="0" max="2000" step="1" class="ssize"></big>
+				</td>
+			</tr>
+		</table>
+		<label><input type="checkbox" name="success" value="1"><big>大成功</big></label>
+		<h3>・2.大発系装備</h3>
+		<label><input type="checkbox" name="kinukaini" value="1"><big>鬼怒改二採用</big></label>
+		<table>
+			<tr align="center">
+				<td>
+					<big>特大発動艇 <input type="number" id="es" value="0" min="0" max="12" step="1" class="dsize"></big>
+				</td>
+				<td>
+					<big>大発動艇 <input type="number" id="ds" value="4" min="0" max="12" step="1" class="dsize"></big>
+				</td>
+			</tr>
+			<tr align="center">
+				<td>
+					<big>陸戦隊* <input type="number" id="hs" value="0" min="0" max="12" step="1" class="dsize"></big>
+				</td>
+				<td>
+					<big>特二式内火艇 <input type="number" id="ks" value="0" min="0" max="12" step="1" class="dsize"></big>
+				</td>
+			</tr>
+		</table>
+		※陸戦隊…大発動艇(八九式中戦車＆陸戦隊)
+		  <br/>
+		<h4>・2<small>-1</small>.大発の改修値</h4>
+  					<big>★<input type="number" id="rfa" value="0" min="0" max="10" step="1" class="ksize"></big>
+	  				<big>★<input type="number" id="rfb" value="0" min="0" max="10" step="1" class="ksize"></big>
+		  			<big>★<input type="number" id="rfc" value="0" min="0" max="10" step="1" class="ksize"></big>
+			  		<big>★<input type="number" id="rfd" value="0" min="0" max="10" step="1" class="ksize"></big>
+		<ul>
+			<li><a href="hoge" class="menu" onclick="sublist(this); return false;">]>クリックでさらに8枠</a>
+				<ul class="plusalpha">
+					<li>
+				  	<big>★<input type="number" id="rfe" value="0" min="0" max="10" step="1" class="ksize"></big>
+	  				<big>★<input type="number" id="rff" value="0" min="0" max="10" step="1" class="ksize"></big>
+		  			<big>★<input type="number" id="rfg" value="0" min="0" max="10" step="1" class="ksize"></big>
+  					<big>★<input type="number" id="rfh" value="0" min="0" max="10" step="1" class="ksize"></big><br>
+	  				<big>★<input type="number" id="rfi" value="0" min="0" max="10" step="1" class="ksize"></big>
+		  			<big>★<input type="number" id="rfj" value="0" min="0" max="10" step="1" class="ksize"></big>
+			  		<big>★<input type="number" id="rfk" value="0" min="0" max="10" step="1" class="ksize"></big>
+			  		<big>★<input type="number" id="rfl" value="0" min="0" max="10" step="1" class="ksize"></big>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		※入力して有効な枠は装備している大発系装備の個数と同数までです
+		<br>(例えば、大発系装備を計3個装備している状態なら3ヶ所まで。このとき4ヶ所以上0以外の数が入っていると正しい計算ができなくなります)。
+		<script type="text/javascript"><!--
+      allshowhide('none');
+    // --></script>
+	</from>
+	<p><input onclick="D_func()" type="button" value="クリックで計算！" class="bsize"></p>
+	<form>
+		<h2>獲得資源 / 増収効果</h2>
+		<table>
+			<tr align="center">
+				<td>
+					<big>燃料 <input id="nenryo" name="nenryo" readonly="readonly" type="text" class="ssize"></big>
+				</td>
+				<td>
+					<big>鋼材 <input id="kozai" name="kozai" readonly="readonly" type="text" class="ssize"></big>
+				</td>
+			</tr>
+			<tr align="center">
+				<td>
+					<big>弾薬 <input id="danyaku" name="danyaku" readonly="readonly" type="text" class="ssize"></big>
+				</td>
+				<td>
+					<big>ボーキ <input id="bauxite" name="bauxite" readonly="readonly" type="text" class="ssize"></big>
+				</td>
+			</tr>
+		</table>
+		大発による増収効果：+ <input id="zoshu" name="zoshu" readonly="readonly" type="text" class="zsize"> %
+	</form>
+  </div>
+  <div class="side">
+  	<p style="padding: 0 10px;">・<a href="https://marshmallow-qa.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">計算機への要望はこちら<br/>(→マシュマロ)</a></p>
+  	<ul type="circle">
+  		<b>自作計算機一覧</b>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com">経験値計算機</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/ensei.html">大発遠征計算機</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/aapb.html">対空噴進弾幕発動率計算機</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_1.html">クルージング計算機&lt;1&gt;</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_2.html">クルージング計算機&lt;2&gt;</a></li>
+  	</ul>
+  	<p style="padding: 0 10px;">作成者：<a href="https://twitter.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">住麩(→twitter)</a></p>
+  	<div class="twt_wrap">
+  		<a class="twitter-timeline" data-lang="en" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/smirnoff_exe?ref_src=twsrc%5Etfw">Tweets by smirnoff_exe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  	</div>
+  	<style>
+  	.twt_wrap {
+  		padding-left: 10px;
+  	}
+  	.twt_wrap > iframe {
+  		margin: auto;
+  	}
+  	</style>
+  </div>
+  </div>
+
+  <p>【おことわり】<br>
+	この計算機では小数を多く扱っているため、特に増収効果の項目で計算結果に-0.001%の誤差が生じることがあります。<br>
+	予めご了承ください。</p>
+
+<!-- '19/11/14 start -->
+
+</html>

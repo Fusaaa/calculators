@@ -1,0 +1,131 @@
+
+	  body{
+			padding: 0 20px;
+		}
+		td{
+			padding: 2px 7px;
+    }
+		.tettai{
+			text-decoration: underline;
+		}
+
+		.tooltip {
+		    position: relative;
+		    cursor: pointer;
+		    display: inline-block;
+		}
+		.tooltip p {
+		    margin:0;
+		    padding:0;
+		}
+		.description {
+		    display: none;
+		    position: absolute;
+		    padding: 10px;
+		    font-size: 12px;
+		    line-height: 1.6em;
+		    color: #fff;
+		    border-radius: 5px;
+		    background: #000;
+		    width: 100px;
+		}
+		.description:before {
+		    content: "";
+		    position: absolute;
+		    top: 0px;
+		    left: 130px;
+		    border: 15px solid transparent;
+		    border-top: 15px solid #000;
+		    margin-left: -15px;
+		    transform: rotateZ(270deg);
+		}
+		.tooltip:hover .description {
+		    display: inline-block;
+		    top: 0px;
+		    left: -130px;
+		}
+
+
+		.tooltip2 {
+		    position: relative;
+		    cursor: pointer;
+		    display: inline-block;
+		}
+		.tooltip2 p {
+		    margin:0;
+		    padding:0;
+		}
+		.description2 {
+		    display: none;
+		    position: absolute;
+		    padding: 10px;
+		    font-size: 12px;
+		    line-height: 1.6em;
+		    color: #fff;
+		    border-radius: 5px;
+		    background: #000;
+		    width: 350px;
+		}
+		.description2:before {
+		    content: "";
+		    position: absolute;
+		    top: -24px;
+		    right: 80%;
+		    border: 15px solid transparent;
+		    border-top: 15px solid #000;
+		    margin-left: -15px;
+		    transform: rotateZ(180deg);
+		}
+		.tooltip2:hover .description2 {
+		    display: inline-block;
+		    top: 30px;
+		    left: 0px;
+		}
+
+
+		select.pulldownsize {
+			width: auto;
+			height: 30px;
+			font-size: 95%;
+		}
+		select.pulldownsize2 {
+			width: auto;
+			height: 25px;
+			font-size: 90%;
+		}
+		select.pulldownsize3 {
+			width: auto;
+			height: 25px;
+			font-size: 90%;
+		}
+
+	  input.cellsize {
+			width: 55px;
+			height: auto;
+			font-size: 120%;
+			text-align: right;
+		}
+		input.cellsize2 {
+			width: 65px;
+			height: auto;
+			text-align: right;
+		}
+
+		input.clicksize {
+			width: 175px;
+			height: 37px;
+			font-size: 100%;
+		}
+
+		input.resultsize {
+			height: 20px;
+			font-size: 90%;
+		}
+
+		input[type=checkbox] {
+			transform: scale(1.4);
+		}
+
+		input[type=number]::-webkit-inner-spin-button {
+		    opacity: 1
+		}

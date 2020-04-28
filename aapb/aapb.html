@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128985652-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-128985652-1');
+	</script>
+
+	<meta charset="utf-8">
+	<meta name="description" content="艦隊これくしょん－艦これ－ 噴進弾幕発動率の計算機です。">
+	<meta name="viewpoint" content="width=1050">
+	<meta name="keywords" content="対空噴進弾幕,噴進弾幕 発動率,ロケラン,ロケラン改二,12cm30連装噴進砲改二">
+	<script src="http://kc2ndexpcalc.web.fc2.com/aapb.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/calc.css">
+	<link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/for-flexbox.css">
+	<title>艦これ > 対空噴進弾幕発動率計算機</title>
+</head>
+
+<body>
+	<h1>噴進弾幕発動率の計算</h1>
+
+	<div class="fusaaa_">
+	<div class="main">
+	  <form name="AAPB">
+      <p>注：現時点('19/7/14)では噴進砲改二の複数積みに対応していません。2個積み→結果+15%、3個積み→結果+30%してください。</p>
+	    艦娘の<b>素の対空</b>値 <input type="number" id="kanmusu_taikuchi" value="70" min="0" max="150" step="1"> / 艦娘の<b>運</b>の値 <input type="number" id="kanmusu_luck" value="10" min="0" max="120" step="1"> / <label><input type="checkbox" name="isegata" value="1" /> 伊勢型の場合はチェックを入れる</label>
+		  <table border="2" height="300" width="550">
+			<tr align="center">
+				<td></td>
+				<td><b>装備種</b></td>
+	      <td><b>対空値</b></td>
+	      <td><b>改修値</b></td>
+			</tr>
+			<tr align="center">
+	      <td>装備1</td>
+	      <td>12cm30連装噴進砲改二</td>
+				<td>8</td>
+			  <td>★ <input type="number" id="soubi_kaishuchi1" value="0" min="0" max="10" step="1"></td>
+			</tr>
+			<tr align="center">
+	      <td>装備2</td>
+	      <td>
+	        <select id="soubishu2" name="soubishu2">
+	          <option value="0">装備なし / 該当装備なし</option><option value="1">対空機銃</option><option value="2">素対空8以上の高角砲</option><option value="3">素対空7以下の高角砲 or 高射装置</option><option value="4">電探</option>
+	        </select>
+	      </td>
+				<td><input type="number" id="taikuchi2" value="0" min="0" max="20" step="1"></td>
+	        <td>★ <input type="number" id="soubi_kaishuchi2" value="0" min="0" max="10" step="1"></td>
+			</tr>
+			<tr align="center">
+	      <td>装備3</td>
+	      <td>
+	        <select id="soubishu3" name="soubishu3">
+	          <option value="0">装備なし / 該当装備なし</option><option value="1">対空機銃</option><option value="2">素対空8以上の高角砲</option><option value="3">素対空7以下の高角砲 or 高射装置</option><option value="4">電探</option>
+	        </select>
+	      </td>
+				<td><input type="number" id="taikuchi3" value="0" min="0" max="20" step="1"></td>
+	      <td>★ <input type="number" id="soubi_kaishuchi3" value="0" min="0" max="10" step="1"></td>
+			</tr>
+			<tr align="center">
+	      <td>装備4</td>
+	      <td>
+	        <select id="soubishu4" name="soubishu4">
+	          <option value="0">装備なし / 該当装備なし</option><option value="1">対空機銃</option><option value="2">素対空8以上の高角砲</option><option value="3">素対空7以下の高角砲 or 高射装置</option><option value="4">電探</option>
+	        </select>
+	      </td>
+				<td><input type="number" id="taikuchi4" value="0" min="0" max="20" step="1"></td>
+	      <td>★ <input type="number" id="soubi_kaishuchi4" value="0" min="0" max="10" step="1"></td>
+			</tr>
+			<tr align="center">
+	      <td>装備5</td>
+	      <td>
+	        <select id="soubishu5" name="soubishu5">
+	          <option value="0">装備なし / 該当装備なし</option><option value="1">対空機銃</option><option value="2">素対空8以上の高角砲</option><option value="3">素対空7以下の高角砲 or 高射装置</option><option value="4">電探</option>
+	        </select>
+	      </td>
+				<td><input type="number" id="taikuchi5" value="0" min="0" max="20" step="1"></td>
+	      <td>★ <input type="number" id="soubi_kaishuchi5" value="0" min="0" max="10" step="1"></td>
+			</tr>
+			<tr align="center">
+	      <td>装備6</td>
+	      <td>
+	        <select id="soubishu6" name="soubishu6">
+	          <option value="0">装備なし / 該当装備なし</option><option value="1">対空機銃</option><option value="2">素対空8以上の高角砲</option><option value="3">素対空7以下の高角砲 or 高射装置</option><option value="4">電探</option>
+	        </select>
+	      </td>
+				<td><input type="number" id="taikuchi6" value="0" min="0" max="20" step="1"></td>
+	      <td>★ <input type="number" id="soubi_kaishuchi6" value="0" min="0" max="10" step="1"></td>
+			</tr>
+	  </table>
+	</form>
+	 <p><input onclick="RES()" type="button" value="クリックして結果を表示"></p>
+	  <big><strong>結果：噴進弾幕の発動率は <input id="aapb" name="aapb" readonly="readonly" size="10" type="text" value=""> % です。</strong></big><br/>※あえて上限を100%に設定していないので、超えても正常な挙動です。
+	</div>
+	<div class="side">
+		<p style="padding: 0 10px;">・<a href="https://marshmallow-qa.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">計算機への要望はこちら<br/>(→マシュマロ)</a></p>
+		<ul type="circle">
+			<b>自作計算機一覧</b>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com">経験値計算機</a></li>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com/ensei.html">大発遠征計算機</a></li>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com/aapb.html">対空噴進弾幕発動率計算機</a></li>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_1.html">クルージング計算機&lt;1&gt;</a></li>
+			<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_2.html">クルージング計算機&lt;2&gt;</a></li>
+		</ul>
+		<p style="padding: 0 10px;">作成者：<a href="https://twitter.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">住麩(→twitter)</a></p>
+    <div class="twt_wrap">
+			<a class="twitter-timeline" data-lang="en" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/smirnoff_exe?ref_src=twsrc%5Etfw">Tweets by smirnoff_exe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+		<style>
+		.twt_wrap {
+			padding-left: 10px;
+		}
+		.twt_wrap > iframe {
+			margin: auto;
+		}
+		</style>
+	</div>
+  </div>
+	<p><small>この計算機では<a href="https://wikiwiki.jp/kancolle/12cm30%E9%80%A3%E8%A3%85%E5%99%B4%E9%80%B2%E7%A0%B2%E6%94%B9%E4%BA%8C">日wikiの計算式</a>を採用していますが、推定式のため「結果」はあくまで近似値を出しているにすぎません。<br/>実際とは僅かに異なる可能性があることをご了承ください。</small></p>
+</body>
+</html>

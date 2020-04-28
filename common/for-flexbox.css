@@ -1,0 +1,17 @@
+
+    .fusaaa_ {
+      display: flex;
+    }
+    .main {
+      flex: 1;
+      background: #f8f8ff;
+      padding: 0 10px;
+      margin-right: 5px;
+    }
+    .side {
+      min-width: 270px;
+      background: #c4beff;
+    }
+    .main,.side {
+      border-radius: 3px;
+    }

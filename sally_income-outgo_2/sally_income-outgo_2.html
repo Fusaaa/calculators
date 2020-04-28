@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="艦隊これくしょん－艦これ－ 三重クルなど、各種クルージングの収支を計算できます。">
+  <meta name="viewpoint" content="width=1050">
+  <meta name="keywords" content="1-3 燃料,三重クル,艦これ 1-3 燃料,艦これ 三重クル">
+  <script src="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_2.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/calc.css">
+  <link rel="stylesheet" href="http://kc2ndexpcalc.web.fc2.com/for-flexbox.css">
+  <style>
+    .font {
+      font-size: 20px;
+    }
+  </style>
+  <title>艦これ > クルージング計算機&lt;2&gt;</title>
+</head>
+
+<body>
+  <h1>クルージング計算機&lt;2&gt;</h1>
+
+  <div class="fusaaa_">
+	<div class="main">
+  <p class="font">［<a href="sally_income-outgo_1.html">周回数・周回時間 → 収支見込</a>はこちら］</p>
+
+  <form name="ic-og">
+
+  クルージングする海域/マス：<select id="spot_cruising" name="spot_cruising" style="font-size:16px;">
+    <option value="1">1-3［通称:三重クル］（燃料）</option><option value="3">2-2［通称:バシクル］（ボーキ）</option><option value="2">3-2［通称:キスクル］（弾薬）</option><option value="4">4-3［通称:リラクル］（燃料+ボーキ）</option></select>
+
+  <table height="250">
+    <tr>
+      <td>
+        <table border="2">
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <table height="125" width="300">
+                      <tr>
+                        <td rowspan="2" align="right">
+                          <b>装備</b>:{
+                        </td>
+                        <td align="center">
+                          ドラム缶 <input type="number" id="drum" value="0" min="0" max="30" step="1" style="font-size:15px;"> 個
+                        </td>
+                      </tr>
+                      <tr align="center">
+                        <td>
+                          大発系<small>(注)</small> <input type="number" id="daihatsu" value="0" min="0" max="30" step="1" style="font-size:15px;"> 個
+                        </td>
+                      </tr>
+                      <tr>
+                      <td colspan="2">
+                        一出撃で消費する<br/>
+                      　燃料：<input type="number" id="outgo_f" value="0" min="0" max="999" step="1" style="font-size:15px;">｜弾薬：<input type="number" id="outgo_a" value="0" min="0" max="999" step="1" style="font-size:15px;">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table height="50" width="206" border="1">
+                    <tr align="left">
+                      <td>
+                        必要量<br/>
+                        <select id="need_source" name="need_source" style="font-size:14px;"><option value="1">燃料</option><option value="2">弾薬</option><option value="3" disabled>(鋼材)</option><option value="4">ﾎﾞｰｷｻｲﾄ</option></select>
+                        <input type="number" id="need" value="0" min="0" max="300000" step="1" style="font-size:15px;">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+        <small>(注)特大発動艇+戦車第11連隊<u>を除く</u>全ての大発系装備の装備数を入れてください。</small>
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <input onclick="RES()" type="button" value="計算" style="height:30px;width:100px;">
+      </td>
+    </tr>
+    <tr align="center">
+      <td>
+        <big><strong>周回数</strong></big> <input id="ic-og_lap" name="ic-og_lap" readonly="readonly" size="5" type="text" value="" style="font-size:20px;"></strong></big> / <big><strong>周回時間</strong></big> <input id="ic-og_time1" name="ic-og_time1" readonly="readonly" size="5" type="text" value="" style="font-size:20px;"></strong></big> 時間 <input id="ic-og_time2" name="ic-og_time2" readonly="readonly" size="5" type="text" value="" style="font-size:20px;"></strong></big> 分
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div class="side">
+		<p style="padding: 0 10px;">・<a href="https://marshmallow-qa.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">計算機への要望はこちら<br/>(→マシュマロ)</a></p>
+  	<ul type="circle">
+  		<b>自作計算機一覧</b>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com">経験値計算機</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/ensei.html">大発遠征計算機</a></li>
+  		<li><a href="http://kc2ndexpcalc.web.fc2.com/aapb.html">対空噴進弾幕発動率計算機</a></li>
+    	<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_1.html">クルージング計算機&lt;1&gt;</a></li>
+    	<li><a href="http://kc2ndexpcalc.web.fc2.com/sally_income-outgo_2.html">クルージング計算機&lt;2&gt;</a></li>
+		</ul>
+  	<p style="padding: 0 10px;">作成者：<a href="https://twitter.com/smirnoff_exe" target="_blank" rel="noopener noreferrer">住麩(→twitter)</a></p>
+    <div class="twt_wrap">
+  		<a class="twitter-timeline" data-lang="en" data-width="220" data-height="400" data-theme="light" href="https://twitter.com/smirnoff_exe?ref_src=twsrc%5Etfw">Tweets by smirnoff_exe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+  	<style>
+  	.twt_wrap {
+			padding-left: 10px;
+  	}
+  	.twt_wrap > iframe {
+			margin: auto;
+  	}
+  	</style>
+	</div>
+  </div>
+
+  <!-- 2019.8.20.start -->
+</body>
+</html>

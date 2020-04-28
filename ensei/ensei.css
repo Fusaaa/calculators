@@ -1,0 +1,57 @@
+
+    body{
+      padding: 0 20px;
+    }
+
+    h2,h3,h4{
+      background: #fffff0;
+      border-bottom: 1.15px solid #7cfc00;
+    }
+
+    td{
+      padding: 2px 7px;
+    }
+
+    ul.plusalpha{
+      list-style-type: none;
+    }
+
+    input.dsize{
+      width: 40px;
+      height: 20px;
+      font-size: 100%;
+    }
+
+    input.ksize{
+      width: 40px;
+      height: 20px;
+      font-size: 100%;
+    }
+
+    input.ssize{
+      width: 65px;
+      height: 20px;
+      font-size: 100%;
+    }
+
+    input.zsize{
+      width: 75px;
+      height: 30px;
+      font-size: 137%;
+    }
+
+    input.bsize{
+      width: 175px;
+      height: 37px;
+      font-size: 100%;
+    }
+
+    select.csize{
+      width: 200px;
+      height: 30px;
+      font-size: 90%;
+    }
+
+    input[type=checkbox] {
+      transform: scale(1.4);
+    }
